@@ -1,0 +1,21 @@
+{
+    "manifest_version": 3,
+    "name": "Sydia MCP Live V2",
+    "version": "2.0",
+    "description": "Mise à jour en LIVE sans reload - WAW!",
+    "permissions": ["activeTab", "scripting"],
+    "host_permissions": ["https://preprod.sydia.fr/*", "http://localhost:5000/*"],
+    "web_accessible_resources": [
+        {
+            "resources": ["inject.js"],
+            "matches": ["https://preprod.sydia.fr/*"]
+        }
+    ],
+    "content_scripts": [
+        {
+            "matches": ["https://preprod.sydia.fr/*"],
+            "js": ["socket.io.min.js", "content.js"],
+            "run_at": "document_idle"
+        }
+    ]
+}
